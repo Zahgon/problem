@@ -7,9 +7,6 @@ final class GenericProblems {
     }
 
     static ProblemBuilder create(final StatusType status) {
-        return Problem.builder()
-                .withTitle(status.getReasonPhrase())
-                .withStatus(status);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

@@ -2,81 +2,56 @@ package org.zalando.problem;
 
 import org.apiguardian.api.API;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
 import java.net.URI;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
-
 import static org.apiguardian.api.API.Status.INTERNAL;
 
 public abstract class AbstractThrowableProblem extends ThrowableProblem {
 
     private final URI type;
+
     private final String title;
+
     private final StatusType status;
+
     private final String detail;
+
     private final URI instance;
+
     private final Map<String, Object> parameters;
 
     protected AbstractThrowableProblem() {
         this(null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type) {
+    protected AbstractThrowableProblem(@Nullable final URI type) {
         this(type, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title) {
         this(type, title, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title,
-            @Nullable final StatusType status) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title, @Nullable final StatusType status) {
         this(type, title, status, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title,
-            @Nullable final StatusType status,
-            @Nullable final String detail) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title, @Nullable final StatusType status, @Nullable final String detail) {
         this(type, title, status, detail, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title,
-            @Nullable final StatusType status,
-            @Nullable final String detail,
-            @Nullable final URI instance) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title, @Nullable final StatusType status, @Nullable final String detail, @Nullable final URI instance) {
         this(type, title, status, detail, instance, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title,
-            @Nullable final StatusType status,
-            @Nullable final String detail,
-            @Nullable final URI instance,
-            @Nullable final ThrowableProblem cause) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title, @Nullable final StatusType status, @Nullable final String detail, @Nullable final URI instance, @Nullable final ThrowableProblem cause) {
         this(type, title, status, detail, instance, cause, null);
     }
 
-    protected AbstractThrowableProblem(
-            @Nullable final URI type,
-            @Nullable final String title,
-            @Nullable final StatusType status,
-            @Nullable final String detail,
-            @Nullable final URI instance,
-            @Nullable final ThrowableProblem cause,
-            @Nullable final Map<String, Object> parameters) {
+    protected AbstractThrowableProblem(@Nullable final URI type, @Nullable final String title, @Nullable final StatusType status, @Nullable final String detail, @Nullable final URI instance, @Nullable final ThrowableProblem cause, @Nullable final Map<String, Object> parameters) {
         super(cause);
         this.type = Optional.ofNullable(type).orElse(DEFAULT_TYPE);
         this.title = title;
@@ -88,32 +63,32 @@ public abstract class AbstractThrowableProblem extends ThrowableProblem {
 
     @Override
     public URI getType() {
-        return type;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getTitle() {
-        return title;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public StatusType getStatus() {
-        return status;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getDetail() {
-        return detail;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public URI getInstance() {
-        return instance;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Map<String, Object> getParameters() {
-        return Collections.unmodifiableMap(parameters);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,7 +101,6 @@ public abstract class AbstractThrowableProblem extends ThrowableProblem {
      */
     @API(status = INTERNAL)
     void set(final String key, final Object value) {
-        parameters.put(key, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

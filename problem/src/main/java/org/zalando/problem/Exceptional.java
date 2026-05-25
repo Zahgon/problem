@@ -1,7 +1,6 @@
 package org.zalando.problem;
 
 import org.apiguardian.api.API;
-
 import static org.apiguardian.api.API.Status.STABLE;
 
 /**
@@ -24,11 +23,10 @@ public interface Exceptional extends Problem {
     Exceptional getCause();
 
     default Exception propagate() throws Exception {
-        throw propagateAs(Exception.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default <X extends Throwable> X propagateAs(final Class<X> type) throws X {
-        throw type.cast(this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

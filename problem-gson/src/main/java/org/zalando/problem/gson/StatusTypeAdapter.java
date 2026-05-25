@@ -7,7 +7,6 @@ import com.google.gson.stream.JsonWriter;
 import lombok.AllArgsConstructor;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.zalando.problem.StatusType;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
@@ -18,30 +17,12 @@ final class StatusTypeAdapter extends TypeAdapter<StatusType> {
     private Map<Integer, StatusType> index;
 
     @Override
-    public void write(
-            final JsonWriter out,
-            @Nullable final StatusType status) throws IOException {
-
-        if (Objects.isNull(status)) {
-            out.nullValue();
-            return;
-        }
-
-        out.value(status.getStatusCode());
+    public void write(final JsonWriter out, @Nullable final StatusType status) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public StatusType read(final JsonReader in) throws IOException {
-        final JsonToken peek = in.peek();
-
-        if (peek == JsonToken.NULL) {
-            in.nextNull();
-            return null;
-        }
-
-        final int statusCode = in.nextInt();
-        @Nullable final StatusType status = index.get(statusCode);
-        return status == null ? new UnknownStatus(statusCode) : status;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

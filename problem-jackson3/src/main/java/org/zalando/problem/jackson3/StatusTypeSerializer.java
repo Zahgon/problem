@@ -6,12 +6,10 @@ import tools.jackson.databind.SerializationContext;
 import org.zalando.problem.StatusType;
 import tools.jackson.databind.ValueSerializer;
 
-
 final class StatusTypeSerializer extends ValueSerializer<StatusType> {
 
     @Override
     public void serialize(final StatusType status, final JsonGenerator json, final SerializationContext ctx) throws JacksonException {
-        json.writeNumber(status.getStatusCode());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

@@ -2,13 +2,11 @@ package org.zalando.problem;
 
 import org.apiguardian.api.API;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
 import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
-
 import static java.util.stream.Collectors.joining;
 import static org.apiguardian.api.API.Status.STABLE;
 
@@ -31,7 +29,7 @@ public interface Problem {
      * @return an absolute URI that identifies this problem's type
      */
     default URI getType() {
-        return DEFAULT_TYPE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -43,7 +41,7 @@ public interface Problem {
      */
     @Nullable
     default String getTitle() {
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -54,7 +52,7 @@ public interface Problem {
      */
     @Nullable
     default StatusType getStatus() {
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -64,7 +62,7 @@ public interface Problem {
      */
     @Nullable
     default String getDetail() {
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -75,7 +73,7 @@ public interface Problem {
      */
     @Nullable
     default URI getInstance() {
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -85,29 +83,27 @@ public interface Problem {
      * @return additional parameters
      */
     default Map<String, Object> getParameters() {
-        return Collections.emptyMap();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static ProblemBuilder builder() {
-        return new ProblemBuilder();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static ThrowableProblem valueOf(final StatusType status) {
-        return GenericProblems.create(status).build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static ThrowableProblem valueOf(final StatusType status, @Nullable final String detail) {
-        return GenericProblems.create(status).withDetail(detail).build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static ThrowableProblem valueOf(final StatusType status, @Nullable final URI instance) {
-        return GenericProblems.create(status).withInstance(instance).build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    static ThrowableProblem valueOf(final StatusType status,
-                                    @Nullable final String detail,
-                                    @Nullable final URI instance) {
-        return GenericProblems.create(status).withDetail(detail).withInstance(instance).build();
+    static ThrowableProblem valueOf(final StatusType status, @Nullable final String detail, @Nullable final URI instance) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -144,18 +140,6 @@ public interface Problem {
      * @see Problem#valueOf(StatusType, String, URI)
      */
     static String toString(final Problem problem) {
-        final Stream<String> parts = Stream.concat(
-                Stream.of(
-                        problem.getStatus() == null ? null : String.valueOf(problem.getStatus().getStatusCode()),
-                        problem.getTitle(),
-                        problem.getDetail(),
-                        problem.getInstance() == null ? null : "instance=" + problem.getInstance()),
-                problem.getParameters()
-                        .entrySet().stream()
-                        .map(Map.Entry::toString))
-                .filter(Objects::nonNull);
-
-        return problem.getType().toString() + "{" + parts.collect(joining(", ")) + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

@@ -5,7 +5,6 @@ import tools.jackson.databind.DeserializationContext;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.zalando.problem.StatusType;
 import tools.jackson.databind.ValueDeserializer;
-
 import java.util.Map;
 
 final class StatusTypeDeserializer extends ValueDeserializer<StatusType> {
@@ -18,9 +17,6 @@ final class StatusTypeDeserializer extends ValueDeserializer<StatusType> {
 
     @Override
     public StatusType deserialize(final JsonParser json, final DeserializationContext context) {
-        final int statusCode = json.getIntValue();
-        @Nullable final StatusType status = index.get(statusCode);
-        return status == null ? new UnknownStatus(statusCode) : status;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

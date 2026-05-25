@@ -12,12 +12,11 @@ final class UnknownStatus implements StatusType {
 
     @Override
     public int getStatusCode() {
-        return statusCode;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getReasonPhrase() {
-        return "Unknown";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

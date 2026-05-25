@@ -3,11 +3,9 @@ package org.zalando.problem;
 import org.apiguardian.api.API;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
-
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toMap;
@@ -357,10 +355,10 @@ public enum Status implements StatusType {
      */
     NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required");
 
-    private static final Map<Integer, Status> STATUSES = Arrays.stream(values())
-            .collect(collectingAndThen(toMap(Status::getStatusCode, identity()), Collections::unmodifiableMap));
+    private static final Map<Integer, Status> STATUSES = Arrays.stream(values()).collect(collectingAndThen(toMap(Status::getStatusCode, identity()), Collections::unmodifiableMap));
 
     private final int code;
+
     private final String reason;
 
     Status(final int statusCode, final String reasonPhrase) {
@@ -375,7 +373,7 @@ public enum Status implements StatusType {
      */
     @Override
     public int getStatusCode() {
-        return code;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -386,7 +384,7 @@ public enum Status implements StatusType {
     @Override
     @NonNull
     public String getReasonPhrase() {
-        return reason;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -396,7 +394,7 @@ public enum Status implements StatusType {
      */
     @Override
     public String toString() {
-        return getStatusCode() + " " + getReasonPhrase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -407,13 +405,6 @@ public enum Status implements StatusType {
      * @throws IllegalArgumentException if the given code does not correspond to a known HTTP status.
      */
     public static Status valueOf(final int code) {
-        @Nullable final Status status = STATUSES.get(code);
-
-        if (status == null) {
-            throw new IllegalArgumentException("There is no known status for this code (" + code + ").");
-        }
-
-        return status;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }
